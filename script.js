@@ -20,8 +20,14 @@ let bowsImg = '';
 
 
 //view
-startMusic();
-startScreen();
+startknappSkjerm();
+function startknappSkjerm() {
+    document.getElementById('app').innerHTML = '<button class="button" onclick="startKnapp()">kjør spill</button>'
+}
+function startKnapp() {
+    startMusic();
+    startScreen();
+}
 function startScreen() {
     document.getElementById('app').innerHTML = /*html*/ `
     <div class="content">
@@ -69,16 +75,37 @@ function battleScreen() {
     `;
 
 }
-function victoryScreen(){
-    document.getElementById('app').innerHTML = 'gratulerer. visual effects';
+
+
+//controller
+//kunne kombinert victory og loss med forskjellige parametre, men det er seint på kvelden.
+function victoryScreen() {
+    document.getElementById('app').innerHTML = 'gratulerer. visual effects <br> <button class="button" onclick="startKnapp()">kjør spill</button>';
+    mainImg = '<img src="img/mario.png">';
+    move1Img = '<img src="img/luigi.png">';
+    move2Img = '<img src="img/peach.png">';
+    move3Img = '<img src="img/yoshi.png">';
+    jumpImg = '';
+    bowsImg = '';
+    info = 'klikk sopp for å ta med i kamp';
+    mushroomNum = 0;
+    bShroomNum = 0;
 }
-function lossScreen(){
-    document.getElementById('app').innerHTML = 'du tapte. such effort';
+function lossScreen() {
+    document.getElementById('app').innerHTML = 'du tapte. such effort <br> <button class="button" onclick="startKnapp()">kjør spill</button>';
+    mainImg = '<img src="img/mario.png">';
+    move1Img = '<img src="img/luigi.png">';
+    move2Img = '<img src="img/peach.png">';
+    move3Img = '<img src="img/yoshi.png">';
+    jumpImg = '';
+    bowsImg = '';
+    info = 'klikk sopp for å ta med i kamp';
+    mushroomNum = 0;
+    bShroomNum = 0;
 }
 function startMusic() {
-    audio.innerHTML = `<iframe src="sound/250-milliseconds-of-silence.mp3" allow="autoplay" hidden ></iframe> <audio src="sound/102 Main Title.mp3" allow="autoplay"></audio>`
+    audio.innerHTML = `<audio src="sound/102 Main Title.mp3" autoplay></audio>`
 }
-//controller
 function addMushroom() {
     mushroomNum++;
     startScreen();
@@ -126,20 +153,22 @@ function setup() {
         move2Img = '';
         move3Img = '';
         bowsImg = '<img src="img/bowser.png">'
+        bhp = 300;
         info = 'klikk sopp for å fylle helse'
         audio.innerHTML = /*html*/`<audio src="sound/230 Bowser's Rage.mp3" autoplay loop></audio>`
+        return battleScreen();
     } else info = 'Velg en karakter';
-    battleScreen();
+    startScreen();
 }
 
 function useMushroom() {
-    if(mushroomNum > 0 )hp += 30;
+    if (mushroomNum > 0) hp += 30;
     else info = playerChoice + ' er tom for sopp';
     mushroomNum--;
     battleScreen();
 }
 function useBshroom() {
-    if(bShroomNum > 0)bhp += 30;
+    if (bShroomNum > 0) bhp += 30;
     else info = 'bowser er tom for sopp';
     bShroomNum--;
     battleScreen();
@@ -149,25 +178,25 @@ function attack(attacker) {
     if (attacker == 'bows') bowsMove1();
 }
 
-function playerMove1(){
+function playerMove1() {
     mainImg = '';
     move1Img = '<img src="img/' + playerChoice + '.png">';
     battleScreen();
     let stmove = setTimeout(playerMove2, 200);
 }
-function playerMove2(){
+function playerMove2() {
     move1Img = '';
     move2Img = '<img src="img/' + playerChoice + '.png">';
     battleScreen();
     let ndmove = setTimeout(playerMove3, 200);
 }
-function playerMove3(){
+function playerMove3() {
     move2Img = '';
     move3Img = '<img src="img/' + playerChoice + '.png">';
     battleScreen();
     let rdmove = setTimeout(playerMove4, 200);
 }
-function playerMove4(){
+function playerMove4() {
     move3Img = '';
     jumpImg = '<img src="img/' + playerChoice + '.png">';
     effect.innerHTML = `<audio src="sound/boing.WAV" autoplay></audio>`
@@ -176,32 +205,32 @@ function playerMove4(){
     battleScreen();
     let thmove = setTimeout(playerMove5, 200);
 }
-function playerMove5(){
+function playerMove5() {
     jumpImg = '';
     move2Img = '<img src="img/' + playerChoice + '.png">';
     battleScreen();
     let bkmove = setTimeout(playerMovebk, 200);
 }
-function playerMovebk(){
+function playerMovebk() {
     move2Img = ''
     mainImg = '<img src="img/' + playerChoice + '.png">'
     battleScreen();
 }
-function bowsMove1(){
+function bowsMove1() {
     bowsImg = '';
     move3Img = '<img src="img/bowser.png">'
     effect.innerHTML = `<audio src="sound/bowser-step.WAV" autoplay></audio>`;
     battleScreen();
     let stbmove = setTimeout(bowsMove2, 200);
 }
-function bowsMove2(){
+function bowsMove2() {
     move3Img = ''
     move2Img = '<img src="img/bowser.png">'
     effect.innerHTML = `<audio src="sound/bowser-step.WAV" autoplay></audio>`;
     battleScreen();
     let ndbmove = setTimeout(bowsMove3, 200);
 }
-function bowsMove3(){
+function bowsMove3() {
     move2Img = ''
     move1Img = '<img src="img/bowser.png">'
     effect.innerHTML = `<audio src="sound/bowser-something.WAV" autoplay></audio>`;
@@ -210,14 +239,14 @@ function bowsMove3(){
     battleScreen();
     let ndbmove = setTimeout(bowsMove4, 200);
 }
-function bowsMove4(){
+function bowsMove4() {
     move1Img = ''
     move3Img = '<img src="img/bowser.png">'
     effect.innerHTML = `<audio src="sound/bowser-step.WAV" autoplay></audio>`;
     battleScreen();
     let thbmove = setTimeout(bowsMovebk, 200);
 }
-function bowsMovebk(){
+function bowsMovebk() {
     move3Img = ''
     bowsImg = '<img src="img/bowser.png">'
     effect.innerHTML = `<audio src="sound/bowser-step.WAV" autoplay></audio>`;
