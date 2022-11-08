@@ -76,7 +76,7 @@ function lossScreen(){
     document.getElementById('app').innerHTML = 'du tapte. such effort';
 }
 function startMusic() {
-    audio.innerHTML = `<audio src="sound/102 Main Title.mp3" autoplay></audio>`
+    audio.innerHTML = `<iframe src="sound/250-milliseconds-of-silence.mp3" allow="autoplay" hidden ></iframe> <audio src="sound/102 Main Title.mp3" allow="autoplay"></audio>`
 }
 //controller
 function addMushroom() {
