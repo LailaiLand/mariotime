@@ -104,7 +104,7 @@ function lossScreen() {
     bShroomNum = 0;
 }
 function startMusic() {
-    audio.innerHTML = `<audio src="sound/102 Main Title.mp3" autoplay></audio>`
+    audio.innerHTML = `<audio src="sound/102 Main Title.mp3" autoplay loop></audio>`
 }
 function addMushroom() {
     mushroomNum++;
