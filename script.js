@@ -162,15 +162,17 @@ function setup() {
 }
 
 function useMushroom() {
-    if (mushroomNum > 0) hp += 30;
-    else info = playerChoice + ' er tom for sopp';
-    mushroomNum--;
+    if (mushroomNum > 0) {
+        mushroomNum--;
+        hp += 30;
+    } else info = playerChoice + ' er tom for sopp';
     battleScreen();
 }
 function useBshroom() {
-    if (bShroomNum > 0) bhp += 30;
-    else info = 'bowser er tom for sopp';
-    bShroomNum--;
+    if (bShroomNum > 0) {
+        bhp += 30;
+        bShroomNum--;
+    } else info = 'bowser er tom for sopp';
     battleScreen();
 }
 function attack(attacker) {

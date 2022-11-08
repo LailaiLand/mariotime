@@ -3,9 +3,9 @@
     grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px;
     grid-template-rows:179px 179px 50px;
     grid-template-areas: 
-    ". info . . button2 . jump ."
+    ". info . . . . jump ."
     "shroom . main move1 move2 move3 bows bshroom"
-    "shroomnum . healthplayer . button . healthbow bshroomnum";
+    "shroomnum . healthplayer button2 . button healthbow bshroomnum";
     
 }
 .jump{
