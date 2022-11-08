@@ -90,6 +90,7 @@ function victoryScreen() {
     info = 'klikk sopp for å ta med i kamp';
     mushroomNum = 0;
     bShroomNum = 0;
+    playerChoice = null;
 }
 function lossScreen() {
     document.getElementById('app').innerHTML = 'du tapte. such effort <br> <button class="button" onclick="startKnapp()">kjør spill</button>';
@@ -102,6 +103,7 @@ function lossScreen() {
     info = 'klikk sopp for å ta med i kamp';
     mushroomNum = 0;
     bShroomNum = 0;
+    playerChoice = null;
 }
 function startMusic() {
     audio.innerHTML = `<audio src="sound/102 Main Title.mp3" autoplay loop></audio>`
