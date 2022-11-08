@@ -1,0 +1,64 @@
+.content {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px;
+    grid-template-rows:179px 179px 50px;
+    grid-template-areas: 
+    ". info . . button2 . jump ."
+    "shroom . main move1 move2 move3 bows bshroom"
+    "shroomnum . healthplayer . button . healthbow bshroomnum";
+    
+}
+.jump{
+    grid-area: jump;
+}
+.shroom{
+    grid-area: shroom;
+}
+.main{
+    grid-area: main;
+}
+.move1{
+    grid-area: move1;
+}
+.move2{
+    grid-area: move2;
+}
+.move3{
+    grid-area: move3;
+}
+.bows{
+    grid-area: bows;
+}
+.bshroom{
+    grid-area: bshroom;
+}
+.shroomnum{
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    color: aliceblue;
+    grid-area: shroomnum;
+}
+.healthplayer{
+    grid-area: healthplayer;
+}
+.healthbow{
+    grid-area: healthbow;
+}
+.bshroomnum{
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    color: aliceblue;
+    grid-area: bshroomnum;
+}
+.button{
+    grid-area: button;
+}
+.button2{
+    grid-area: button2;
+}
+.info{
+    color: red;
+    grid-area: info;
+}
