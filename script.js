@@ -120,13 +120,13 @@ function playerSelect(character) {
 }
 function setup() {
     if (playerChoice) {
-        mainImg = /*html*/'<img src="img/' + playerChoice + '.png">';
+        mainImg = '<img src="img/' + playerChoice + '.png">';
         move1Img = '';
         move2Img = '';
         move3Img = '';
         bowsImg = '<img src="img/bowser.png">'
         info = 'klikk sopp for å fylle helse'
-        audio.innerHTML = /*html*/`<audio src="sound/230 Bowser's Rage.mp3" autoplay loop></audio>`
+        audio.innerHTML = `<audio src="sound/230 Bowser's Rage.mp3" autoplay loop></audio>`
     } else info = 'Velg en karakter';
     battleScreen();
 }
